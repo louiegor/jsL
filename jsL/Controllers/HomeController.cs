@@ -21,6 +21,11 @@ namespace jsL.Controllers
             return View();
         }
 
+        public string DataColor()
+        {
+            return "Red";
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";

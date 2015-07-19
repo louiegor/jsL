@@ -20,13 +20,23 @@
 }
 
 <h2>this is just practice for angularjs http://fdietz.github.io/recipes-with-angular-js/index.html</h2>
+<div ng-controller="ColorController">
+    {{color}}
+</div>
 
-<h4>test 4 - angular filer</h4>
-Enter your name: <input type="text" ng-model="akbmember"/>
-<p>Hello {{akbmember|uppercase}}</p>
-
-<h4>test 3 - using controller in different file</h4>
 <div ng-controller="MyCtrl">
+    <h5>test 6 - watch function</h5>
+    Akb Member: {{greeting}}
+
+    <h5>test 5 - angular function</h5>
+    {{value}} <button ng-click="getIncrementedValue()">add 1</button>
+
+    <h4>test 4 - angular filer</h4>
+    Enter akb member name: <input type="text" ng-model="akbmember"/>
+    <p>Hello {{akbmember|uppercase}}</p>
+
+
+    <h4>test 3 - using controller in different file</h4>
     <button ng-click="toggle()">Toggle</button>
     <p ng-show="visible">Hello World!</p>
     {{name}}

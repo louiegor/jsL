@@ -77,3 +77,9 @@ C:\CODE\jsL\jsL\bin\zh-Hant\System.Spatial.resources.dll
 C:\CODE\jsL\jsL\obj\Debug\jsL.csprojResolveAssemblyReference.cache
 C:\CODE\jsL\jsL\obj\Debug\jsL.dll
 C:\CODE\jsL\jsL\obj\Debug\jsL.pdb
+C:\CODE\jsL\jsL\bin\System.Net.Http.Formatting.dll
+C:\CODE\jsL\jsL\bin\System.Web.Http.dll
+C:\CODE\jsL\jsL\bin\System.Web.Http.WebHost.dll
+C:\CODE\jsL\jsL\bin\System.Net.Http.Formatting.xml
+C:\CODE\jsL\jsL\bin\System.Web.Http.xml
+C:\CODE\jsL\jsL\bin\System.Web.Http.WebHost.xml
