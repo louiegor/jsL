@@ -1,1 +1,5 @@
-2015/07/18-22:18:10.844 f8 Delete type=3 #1
+2015/07/19-20:33:00.913 bc4 Recovering log #3
+2015/07/19-20:33:00.924 bc4 Level-0 table #5: started
+2015/07/19-20:33:00.936 bc4 Level-0 table #5: 792196 bytes OK
+2015/07/19-20:33:00.939 bc4 Delete type=0 #3
+2015/07/19-20:33:00.940 bc4 Delete type=3 #2

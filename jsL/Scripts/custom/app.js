@@ -35,15 +35,13 @@ myApp.controller('ColorController', function ($scope,$http) {
     }).success(function (data, status, headers, config) {
         $scope.color = data;
     });
-//myApp.controller('ColorController', function ($scope) {
+});
 
+//myApp.controller('PersonController', function ($scope, $http) {
 //    $http({
-//        url: '/home/DataColor',
+//        url: '/home/PersonJson',
 //        method: 'GET'
 //    }).success(function (data, status, headers, config) {
 //        $scope.color = data;
 //    });
-
-});
-
-
+//});
