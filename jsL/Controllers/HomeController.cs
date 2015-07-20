@@ -26,6 +26,22 @@ namespace jsL.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult GetId(string name)
+        {
+            try
+            {
+                string x = name;
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+
+                return Json(new { success = false, errorMessage = ex.Message });
+            }
+
+        }
+
         public string DataColor()
         {
             PersonJson();
@@ -35,17 +51,8 @@ namespace jsL.Controllers
         public JsonResult PersonJson()
         {
             var list = GetPersonList();
+            return list.ToJsonResult();
 
-            var jsonSerialiser = new JavaScriptSerializer();
-            var json = jsonSerialiser.Serialize(list);
-            var result = JsonConvert.DeserializeObject(json);
-
-            var jsonResult = new JsonResult()
-                                 {
-                                     Data = list
-                                 };
-
-            return jsonResult;
         }
 
         public ActionResult About()
@@ -94,11 +101,9 @@ namespace jsL.Controllers
     public static class Helper
     {
 
-        public static List<T> ToJson<T> (List<T> aList)
+        public static JsonResult ToJsonResult<T>(this T obj)
         {
-            var jsonSerialiser = new JavaScriptSerializer();
-            var json = jsonSerialiser.Serialize(aList);
-            return aList;
+            return new JsonResult { Data = obj, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }
 

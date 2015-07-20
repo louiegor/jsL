@@ -20,6 +20,28 @@
 }
 
 <h2>this is just practice for angularjs http://fdietz.github.io/recipes-with-angular-js/index.html</h2>
+
+<h5>test 10 - posting a value</h5>
+@*<div ng-controller="PostingController">
+    Posting a value: <input type="text" ng-model="posting"/>
+</div>*@
+
+<h5>test 9 - json to unsorted list</h5>
+<div ng-controller="PersonController">
+    <ul>
+        <li ng-repeat="p in person">
+            {{p.Name}} - crew member of {{p.Organization}}
+        </li>
+    </ul>
+</div>
+
+<h5>test 8 - get json from server</h5>
+<div ng-controller="PersonController">
+    {{person}}
+</div>
+
+
+<h5>test 7 - get string from server</h5>
 <div ng-controller="ColorController">
     {{color}}
 </div>

@@ -27,6 +27,13 @@ function MyCtrl($scope) {
     
 }
 
+myApp.controller('PostingController', function ($scope, $http) {
+    $scope.posting = "";
+
+    $http.post("/home/GetId", data).error(function(responseData) {
+        console.log("Error !" + responseData);
+    });
+});
 
 myApp.controller('ColorController', function ($scope,$http) {
     $http({
@@ -37,11 +44,11 @@ myApp.controller('ColorController', function ($scope,$http) {
     });
 });
 
-//myApp.controller('PersonController', function ($scope, $http) {
-//    $http({
-//        url: '/home/PersonJson',
-//        method: 'GET'
-//    }).success(function (data, status, headers, config) {
-//        $scope.color = data;
-//    });
-//});
+myApp.controller('PersonController', function ($scope, $http) {
+    $http({
+        url: '/home/PersonJson',
+        method: 'GET'
+    }).success(function (data, status, headers, config) {
+        $scope.person = data;
+    });
+});
