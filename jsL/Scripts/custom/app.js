@@ -27,12 +27,40 @@ function MyCtrl($scope) {
     
 }
 
-myApp.controller('PostingController', function ($scope, $http) {
-    $scope.posting = "";
 
-    $http.post("/home/GetId", data).error(function(responseData) {
-        console.log("Error !" + responseData);
-    });
+//angular.module('myApp', [])
+//.controller('myCtrl', function ($scope, $http) {
+//    $scope.hello = { name: "Boaz" };
+//    $scope.newName = "";
+//    $scope.sendPost = function () {
+//        var data = $.param({
+//            json: JSON.stringify({
+//                name: $scope.newName
+//            })
+//        });
+//        $http.post("/echo/json/", data).success(function (data, status) {
+//            $scope.hello = data;
+//        })
+//    }
+//})
+
+myApp.controller('PostingController', function($scope, $http) {
+    $scope.hello = { name: "Boaz" };
+    $scope.newName = "";
+    $scope.sendPost = function() {
+        var data = $.param({
+            json: JSON.stringify({
+                name: $scope.newName
+            }),
+            //headers: { 'Content-Type': 'application/json' }
+        });
+            
+        $http.post("/home/GetId", {
+            newName : $scope.newName
+        }).success(function (data, status) {
+            $scope.hello.name = data.NewName;
+        });
+    };
 });
 
 myApp.controller('ColorController', function ($scope,$http) {

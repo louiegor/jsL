@@ -26,21 +26,29 @@ namespace jsL.Controllers
             return View();
         }
 
-        [HttpPost]
-        public JsonResult GetId(string name)
+        public class ViewModel
         {
-            try
-            {
-                string x = name;
-                return Json(new { success = true });
-            }
-            catch (Exception ex)
-            {
+            public string NewName { get; set; }
+        }
 
-                return Json(new { success = false, errorMessage = ex.Message });
-            }
+        [HttpPost]
+        public JsonResult GetId(ViewModel vm)
+        {
+            //string x = "Louiegor";
+            //return Json(vm)
+            return vm.ToJsonResult();
 
         }
+
+        //[HttpPost]
+        //public JsonResult GetId()
+        //{
+        //    var louiegor = new  {name = "Louiegor "};
+        //    //const string newName = "Louiegor";
+        //    return louiegor.ToJsonResult();
+
+        //}
+
 
         public string DataColor()
         {
