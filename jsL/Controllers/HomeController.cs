@@ -32,23 +32,26 @@ namespace jsL.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetId(ViewModel vm)
+        public JsonResult PostFile(HttpPostedFileBase file)
         {
-            //string x = "Louiegor";
-            //return Json(vm)
-            return vm.ToJsonResult();
-
+            const string result = "upload successfully";
+            // Save posted file using a unique
+            // Store the path/unique name in Widget.FilePath
+            // Save new Widget object
+            return result.ToJsonResult();
         }
 
-        //[HttpPost]
-        //public JsonResult GetId()
-        //{
-        //    var louiegor = new  {name = "Louiegor "};
-        //    //const string newName = "Louiegor";
-        //    return louiegor.ToJsonResult();
+        [HttpPost]
+        public JsonResult PostPerson(Person p)
+        {
+            return p.ToJsonResult();
+        }
 
-        //}
-
+        [HttpPost]
+        public JsonResult GetId(ViewModel vm)
+        {
+            return vm.ToJsonResult();
+        }
 
         public string DataColor()
         {

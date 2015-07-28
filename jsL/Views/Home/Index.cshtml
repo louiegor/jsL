@@ -21,6 +21,36 @@
 
 <h2>this is just practice for angularjs http://fdietz.github.io/recipes-with-angular-js/index.html</h2>
 
+<h5>upload a file -http://jsfiddle.net/JeJenny/ZG9re/</h5>
+
+
+
+<h5>test 12 - preview a file</h5>
+<div ng-controller="UploadController">
+    <form>
+        <input type="file" ng-file-select="onFileSelect($files)" file-model="myFile"/>
+        <button ng-click="uploadFile()">Upload</button>
+    </form>
+
+    <b>Preview:</b><br />
+    <i ng-hide="imageSrc">No image choosed</i>
+    <img ng-src="{{imageSrc}}" /><br/>
+    <b>Progress:</b>
+    <progress value="{{progress}}"></progress>
+</div>
+
+<h5>test 11 - posting a object</h5>
+<div ng-controller="PersonPostController">
+    {{person.name}} {{person.organization}}
+
+    <form ng-submit="sendPost()">
+        <label>Name</label><input ng-model="person.name"/>
+        <label>Organization</label><input ng-model="person.organization"/>
+        <button type="submit">Send</button>
+    </form>
+    
+</div>
+
 <h5>test 10 - posting a value</h5>
 <div ng-controller="PostingController">
     {{hello.name}}
