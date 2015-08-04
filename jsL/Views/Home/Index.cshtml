@@ -23,13 +23,19 @@
 
 <h5>upload a file -http://jsfiddle.net/JeJenny/ZG9re/</h5>
 
+@*<form action="/home/PostFile" method="post" enctype="multipart/form-data">
 
+  <label for="file">Filename:</label>
+  <input type="file" name="file" id="file" />
+
+  <input type="submit" />
+</form>*@
 
 <h5>test 12 - preview a file</h5>
 <div ng-controller="UploadController">
-    <form>
-        <input type="file" ng-file-select="onFileSelect($files)" file-model="myFile"/>
-        <button ng-click="uploadFile()">Upload</button>
+    <form action="/home/PostFile" method="post" enctype="multipart/form-data">
+        <input name="file" id="file" type="file" ng-file-select="onFileSelect($files)" file-model="myFile"/>
+        <input type="submit" ng-click="uploadFile()"></input>
     </form>
 
     <b>Preview:</b><br />
@@ -37,6 +43,8 @@
     <img ng-src="{{imageSrc}}" /><br/>
     <b>Progress:</b>
     <progress value="{{progress}}"></progress>
+    
+
 </div>
 
 <h5>test 11 - posting a object</h5>

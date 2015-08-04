@@ -33,5 +33,17 @@ namespace jsL.Testing
                 Assert.AreEqual(charas.First().Name, "Luffy");
             }
         }
+
+        [Test]
+        public void Test3()
+        {
+            var db = new OpContext();
+            var luffy = db.Characters.FirstOrDefault(x => x.Name == "Luffy");
+            if (luffy != null)
+            {
+                var luffyOrg = luffy.Organizations.ToList();
+                Assert.Greater(luffyOrg.Count, 0);
+            }
+        }
     }
 }

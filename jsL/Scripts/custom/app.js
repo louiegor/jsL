@@ -39,18 +39,20 @@ myApp.controller('PersonPostController', function ($scope, $http) {
             $scope.person.organization = data.Organization;
         });
     };
+    
+
 });
 
 myApp.controller('PostingController', function($scope, $http) {
     $scope.hello = { name: "Boaz" };
     $scope.newName = "";
     $scope.sendPost = function() {
-        var data = $.param({
-            json: JSON.stringify({
-                name: $scope.newName
-            }),
-            //headers: { 'Content-Type': 'application/json' }
-        });
+        //var data = $.param({
+        //    json: JSON.stringify({
+        //        name: $scope.newName
+        //    }),
+        //    //headers: { 'Content-Type': 'application/json' }
+        //});
             
         $http.post("/home/GetId", {
             newName : $scope.newName
@@ -58,6 +60,8 @@ myApp.controller('PostingController', function($scope, $http) {
             $scope.hello.name = data.NewName;
         });
     };
+    
+
 });
 
 myApp.controller('ColorController', function ($scope,$http) {

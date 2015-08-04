@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
@@ -17,6 +18,11 @@ namespace jsL.Controllers
         public string Organization { get; set; }
     }
 
+    public class File
+    {
+        public string Name { get; set; }
+    }
+
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -31,14 +37,28 @@ namespace jsL.Controllers
             public string NewName { get; set; }
         }
 
+        //[HttpPost]
+        //public JsonResult PostFile(File f)
+        //{
+        //    const string result = "upload successfully";
+        //    // Save posted file using a unique
+        //    // Store the path/unique name in Widget.FilePath
+        //    // Save new Widget object
+        //    return result.ToJsonResult();
+        //}
+
         [HttpPost]
-        public JsonResult PostFile(HttpPostedFileBase file)
+        public ActionResult PostFile(HttpPostedFileBase file)
         {
-            const string result = "upload successfully";
-            // Save posted file using a unique
-            // Store the path/unique name in Widget.FilePath
-            // Save new Widget object
-            return result.ToJsonResult();
+
+            if (file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                file.SaveAs(path);
+            }
+
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

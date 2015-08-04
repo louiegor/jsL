@@ -87,3 +87,5 @@ C:\CODE\jsL\jsL\bin\EntityFramework.SqlServer.dll
 C:\CODE\jsL\jsL\bin\nunit.framework.dll
 C:\CODE\jsL\jsL\bin\EntityFramework.SqlServer.xml
 C:\CODE\jsL\jsL\bin\nunit.framework.xml
+C:\CODE\jsL\jsL\obj\Debug\jsL.Migrations.InitialCreate.resources
+C:\CODE\jsL\jsL\obj\Debug\jsL.csproj.GenerateResource.Cache
