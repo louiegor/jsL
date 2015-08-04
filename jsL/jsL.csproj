@@ -203,6 +203,9 @@
     <Compile Include="Models\Character.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Testing\ContextTesting.cs" />
+    <Content Include="App_Data\uploads\lynskey-large.jpg" />
+    <Content Include="App_Data\uploads\lynskey-med.jpg" />
+    <Content Include="Content\Op.css" />
     <Content Include="Scripts\custom\app.js" />
   </ItemGroup>
   <ItemGroup>
@@ -1101,10 +1104,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Home\Testing.cshtml" />
+    <Content Include="Views\Home\Yes.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\uploads\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

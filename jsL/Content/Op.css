@@ -1,0 +1,49 @@
+﻿body {
+  font-family: Avenir, Helvetica, sans-serif;
+}
+
+#lynskey circle, #lynskey polygon {
+  fill: none;
+  pointer-events: all;
+}
+
+#lynskey text {
+  opacity: 0;
+  transition: .3s;
+  font-size: 24px;
+}
+
+#lynskey polygon:hover,
+#lynskey circle:hover {
+  cursor: pointer;
+}
+
+#lynskey polygon:hover + text,
+#lynskey circle:hover + text, 
+#lynskey circle:focus + text,
+#lynskey polygon:focus + text
+{
+  opacity: 1;
+}
+
+@media all and (max-width: 500px) {
+  #lynskey text {
+    font-size: 28px;
+  }
+}
+#lynskey { 
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1500px;
+}
+
+#lynskey svg {
+	background-image: url('../App_Data/uploads/lynskey-med.jpg');
+  background-size: cover;
+}
+
+@media all and (min-width: 750px) {
+	#lynskey svg {
+		background-image: url('../App_Data/uploads/lynskey-large.jpg');
+	}
+}

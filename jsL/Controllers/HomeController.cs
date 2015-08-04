@@ -37,15 +37,6 @@ namespace jsL.Controllers
             public string NewName { get; set; }
         }
 
-        //[HttpPost]
-        //public JsonResult PostFile(File f)
-        //{
-        //    const string result = "upload successfully";
-        //    // Save posted file using a unique
-        //    // Store the path/unique name in Widget.FilePath
-        //    // Save new Widget object
-        //    return result.ToJsonResult();
-        //}
 
         [HttpPost]
         public ActionResult PostFile(HttpPostedFileBase file)
@@ -117,16 +108,15 @@ namespace jsL.Controllers
             return list;
         }
 
-        //public static ToJson (List<T> aList)
-        //{
-        //    var jsonSerialiser = new JavaScriptSerializer();
-        //    var json = jsonSerialiser.Serialize(aList);
-        //}
+        public ActionResult Yes()
+        {
+            return View();
+        }
 
-//        public static T ConfigSetting<T>(string settingName)
-//{  
-//    return /* code to convert the setting to T... */
-//}
+        public ActionResult Testing()
+        {
+            return View();
+        }
     }
 
     public static class Helper
