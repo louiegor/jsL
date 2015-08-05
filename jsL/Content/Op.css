@@ -38,12 +38,19 @@
 }
 
 #lynskey svg {
-	background-image: url('../App_Data/uploads/lynskey-med.jpg');
-  background-size: cover;
+	background-image: url('../Content/themes/base/images/lynskey-med.jpg');
+    background-color: aqua;
+    background-size: cover;
 }
 
 @media all and (min-width: 750px) {
 	#lynskey svg {
-		background-image: url('../App_Data/uploads/lynskey-large.jpg');
+		background-image: url('../Content/themes/base/images/lynskey-large.jpg');
+	    background-color: brown;
 	}
+}
+
+#lynskey #gogogo {
+	background-color: yellow;
+    width: 100%
 }

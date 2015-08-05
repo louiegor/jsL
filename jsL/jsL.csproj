@@ -206,6 +206,8 @@
     <Content Include="App_Data\uploads\lynskey-large.jpg" />
     <Content Include="App_Data\uploads\lynskey-med.jpg" />
     <Content Include="Content\Op.css" />
+    <Content Include="Content\themes\base\images\lynskey-large.jpg" />
+    <Content Include="Content\themes\base\images\lynskey-med.jpg" />
     <Content Include="Scripts\custom\app.js" />
   </ItemGroup>
   <ItemGroup>
