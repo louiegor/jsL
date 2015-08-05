@@ -28,7 +28,7 @@ function MyCtrl($scope) {
 }
 
 myApp.controller('PersonPostController', function ($scope, $http) {
-    $scope.person = { name: "" , organization: ""};
+    $scope.person = { name: "" , organization: "", atk: "", def:"",spd:"",haki:"", akumaName:"", akumaNoMi:"", imgSmall:""};
     $scope.newName = "";
     $scope.newOrg = "";
     $scope.sendPost = function () {
