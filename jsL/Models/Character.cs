@@ -25,7 +25,7 @@ namespace jsL.Models
     {
         public int Id { get; set; }
         public int Haki { get; set; }
-        public int? AkumaNoMi { get; set; }
+        public int? AkumaNoMi { get; set; } // The range for Akuma no mi must be between 80-120
         public string AkumaNoMiName { get; set; }
         public int Atk { get; set; }
         public int Def { get; set; }

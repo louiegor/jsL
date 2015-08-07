@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using System.Web.UI.WebControls;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 
 namespace jsL.Controllers
@@ -45,7 +48,8 @@ namespace jsL.Controllers
             if (file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Content/base/images"), fileName);
+                //var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
                 file.SaveAs(path);
             }
 
@@ -124,8 +128,26 @@ namespace jsL.Controllers
 
         public static JsonResult ToJsonResult<T>(this T obj)
         {
-            return new JsonResult { Data = obj, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            return new JsonResult() {Data = obj, JsonRequestBehavior = JsonRequestBehavior.AllowGet};
         }
+
+        public static ContentResult ToJsonCamelResult<T>(this T obj)
+        {
+            var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+            var jsonObj = JsonConvert.SerializeObject(obj, Formatting.Indented, settings);
+            //return new JsonResult { Data = jsonObj, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            return new ContentResult
+            {
+                ContentType = "text/plain",
+                Content = jsonObj,
+                ContentEncoding = Encoding.UTF8
+            };
+
+            
+        }
+
+        
+
     }
 
 }

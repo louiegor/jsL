@@ -27,16 +27,30 @@ function MyCtrl($scope) {
     
 }
 
+//cmApp
+//  .controller('AddCtrl', ['$scope', 'sharedService', '$http', function($scope, sharedService, $http) {
+
+//myApp.controller('CharaController', ['$scope','sharedService','$http', function($scope, sharedService, $http) {
+myApp.controller('CharaController', function($scope, $http) {
+    $scope.listChara = [];
+    $scope.orgName = "StrawHatPirate";
+   
+    var path = "/character/GetByOrg";
+    $http.post(path, { name: $scope.orgName }).success(function (data, status) {
+        $scope.listChara = data;
+    });
+    
+});
+
 myApp.controller('PersonPostController', function ($scope, $http) {
-    $scope.person = { name: "" , organization: "", atk: "", def:"",spd:"",haki:"", akumaName:"", akumaNoMi:"", imgSmall:""};
+    $scope.person;
     $scope.newName = "";
     $scope.newOrg = "";
     $scope.sendPost = function () {
         $http.post("/home/PostPerson",  $scope.person
             
         ).success(function (data, status) {
-            $scope.person.name = data.Name;
-            $scope.person.organization = data.Organization;
+           
         });
     };
     
@@ -82,6 +96,14 @@ myApp.controller('PersonController', function ($scope, $http) {
     });
 });
 
+myApp.controller('CharacterController', function ($scope, $http) {
+    $http({
+        url: '/home/PersonJson',
+        method: 'GET'
+    }).success(function (data, status, headers, config) {
+        $scope.person = data;
+    });
+});
 
 myApp.controller('UploadController', function ($scope, fileReader) {
     console.log(fileReader),

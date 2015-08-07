@@ -1,18 +1,33 @@
-﻿@model jsL.ViewModels.PersonVm
-
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Person";
 }
 
-<!DOCTYPE html>
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    
+</hgroup>
 
-<html>
-    <head>
-        <title>title</title>
-    </head>
-    <body>
-        <div>
-              
-        </div>
-    </body>
-</html>
+<section class="contact">
+    <div ng-controller="PersonPostController">
+        {{person.name}} {{person.organization}}
+
+        <form ng-submit="sendPost()">
+            <label>Name</label><input ng-model="person.name"/>
+            <label>Organization</label><input ng-model="person.organization"/>
+            <button type="submit">Send</button>
+        </form>
+    
+    </div>
+    
+    <div ng-controller="CharaController">
+        <table>
+            <tr ng-repeat="p in listChara">
+                <td>{{p.name}}</td>
+            </tr>
+
+        </table>
+        
+        @*<p>{{gogogo}}</p>*@
+    </div>
+
+</section>
