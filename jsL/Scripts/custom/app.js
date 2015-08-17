@@ -31,6 +31,33 @@ function MyCtrl($scope) {
 //  .controller('AddCtrl', ['$scope', 'sharedService', '$http', function($scope, sharedService, $http) {
 
 //myApp.controller('CharaController', ['$scope','sharedService','$http', function($scope, sharedService, $http) {
+
+myApp.controller('OrganizationCtrl', function($scope, $http) {
+    $scope.orgName = "";
+    $scope.listAllOrg = [];
+    $scope.list_category="";
+    var path = "/home/GetAllOrg";
+    $http.get(path).then(function (response) {
+        $scope.listAllOrg = response;
+    }, function(response) {
+    });
+
+    $scope.orgId = "";
+    $scope.charaName = "";
+    $scope.addChara = function () {
+        $http.post("/home/AddCharacter", { orgId: $scope.orgId, charaName: $scope.charaName }).then(function (response) {
+
+        }, function (response) { });
+    };
+
+    $scope.addOrg = function() {
+        $http.post("/home/AddOrganization", {orgName : $scope.orgName }).then(function(response) {
+
+        }, function (response){});
+    };
+});
+
+
 myApp.controller('CharaController', function($scope, $http) {
     $scope.listChara = [];
     $scope.orgName = "StrawHatPirate";

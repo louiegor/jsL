@@ -24,8 +24,28 @@
 
 <h5>upload a file -http://jsfiddle.net/JeJenny/ZG9re/</h5>
 
-<h6>test 13 - Arranging data in table format</h6>
 
+<div ng-controller="OrganizationCtrl">
+    <h6>test 15 - Add Character</h6>
+    <form ng-submit="addChara()">
+        <label>Name</label> <input type="text" ng-model="charaName"/>
+        <label>Organization</label>
+        <select id="sel2" class="input-block-level" ng-model="orgId" ng-options="obj.id as obj.name for obj in listAllOrg.data"></select>
+        <input type="submit"/>
+    </form>
+
+    <h6>test 14 - Get dropdown of all organizations</h6>
+    <select id="sel" class="input-block-level" ng-model="list_category" ng-options="obj.id as obj.name for obj in listAllOrg.data"></select>
+    <p>$scope.list_category: {{list_category}}</p>
+    
+    <h6>test 13 - Add Organization</h6>
+    <form ng-submit="addOrg()">
+        <input type="text" ng-model="orgName"/>
+        <input type="submit"/>
+    </form>
+    
+
+</div>
 
 <h5>test 12 - preview a file</h5>
 <div ng-controller="UploadController">

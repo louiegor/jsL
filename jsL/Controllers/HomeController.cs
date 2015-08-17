@@ -11,6 +11,8 @@ using System.Web.Script.Serialization;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using jsL.Context;
+using jsL.Models;
 
 
 namespace jsL.Controllers
@@ -40,6 +42,37 @@ namespace jsL.Controllers
             public string NewName { get; set; }
         }
 
+        public class CharaVm
+        {
+            public int OrgId { get; set; }
+            public string CharaName { get; set; }
+        }
+
+        public ActionResult AddCharacter(CharaVm c)
+        {
+            var opContext = new OpContext();
+            var organizations = new List<Organization>();
+            var org = opContext.Organizations.Single(x => x.Id == c.OrgId);
+            organizations.Add(org);
+            opContext.Characters.Add(new Character{Name = c.CharaName, Organizations = organizations});
+            opContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult AddOrganization(string orgName)
+        {
+            var opContext = new OpContext();
+            opContext.Organizations.Add(new Organization {Name = orgName});
+            opContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult GetAllOrg()
+        {
+            var opContext = new OpContext();
+            var list = opContext.Organizations.ToList();
+            return list.ToJsonCamelResult();
+        }
 
         [HttpPost]
         public ActionResult PostFile(HttpPostedFileBase file)
