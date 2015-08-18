@@ -1,35 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace jsL.Models
 {
-    public class Character
+    public interface IBaseEntity
+    {
+        int Id { get; set; }
+        string Name { get; set; }
+    }
+    public class Character:IBaseEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string ImgPathSmall { get; set; }
         public string ImgPathLarge { get; set; }
-        public Stats Stats { get; set; }
-        public virtual ICollection<Organization> Organizations { get; set; }
+
+        public int StatsId { get; set; }
+        public virtual Stats Stats { get; set; }
+
+        
+        public int OrganizationId { get; set; }
+        public virtual Organization Organization { get; set; }
     }
 
-    public class Organization
+    public class Organization : IBaseEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public virtual ICollection<Character> Characters { get; set; }
     }
 
     public class Stats
     {
         public int Id { get; set; }
         public int Haki { get; set; }
-        public int? AkumaNoMi { get; set; } // The range for Akuma no mi must be between 80-120
+        [Range(90,120)]
+        public int? AkumaNoMi { get; set; } // The range for Akuma no mi must be between 90-120
         public string AkumaNoMiName { get; set; }
         public int Atk { get; set; }
         public int Def { get; set; }
         public int Spd { get; set; }
+        
 
         public int Total()
         {

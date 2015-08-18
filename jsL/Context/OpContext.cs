@@ -16,5 +16,6 @@ namespace jsL.Context
         }
         public DbSet<Character> Characters { get; set; }
         public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Stats> Stats { get; set; }
     }
 }

@@ -54,7 +54,7 @@ namespace jsL.Controllers
             var organizations = new List<Organization>();
             var org = opContext.Organizations.Single(x => x.Id == c.OrgId);
             organizations.Add(org);
-            opContext.Characters.Add(new Character{Name = c.CharaName, Organizations = organizations});
+            opContext.Characters.Add(new Character{Name = c.CharaName, Organization = org});
             opContext.SaveChanges();
             return RedirectToAction("Index");
         }
