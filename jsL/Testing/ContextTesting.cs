@@ -85,38 +85,22 @@ namespace jsL.Testing
         [Test]
         public void Test4()
         {
-            var cS = new CharacterService();
+            var context = new OpContext();
+            var cS = new CharacterService(context);
+            var oS = new OrganizationService(context);
+
             var luffy = cS.GetByName("Luffy");
-            //var luffyStat = cS.Db.Stats.Single(x => x.Id == luffy.StatsId);
-            luffy.Name = "luffy";
-            cS.Update2(luffy);
-            //cS.Db.SaveChanges();
+            luffy.Name = "luffy gogogo";
+            context.SaveChanges();
 
-            var luffy2 = cS.GetByName("Luffy");
-            
-            Assert.AreEqual(95,luffy2.Stats.Atk);
+            var strawH = oS.GetByName("Straw Hat Pirate");
+            strawH.Name = "Straw Hat gogogogo";
+            context.SaveChanges();
 
-            luffy.Stats.Atk = 90;
-            cS.Update2(luffy);
-            
-         }
-
-        [Test]
-        public void Test5()
-        {
-            var cS = new CharacterService();
-            var luffy = new Character {Name = "Luffy"};
-            var result = cS.Add(luffy);
-
-            Assert.AreEqual(result.IsSuccessful,false);
+            context.Dispose();
         }
 
-        [Test]
-        public void Test6()
-        {
-            var cS = new CharacterService();
-            var luffy = cS.GetByName("Luffy");
-            Assert.AreEqual("Luffy", luffy.Name);
-        }
+
+        
     }
 }

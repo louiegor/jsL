@@ -10,28 +10,28 @@ namespace jsL.Services
     public abstract class ServiceBase<T> where T : class, IBaseEntity
     {
         private OpContext db;
-
-        public OpContext Db
+        
+        public ServiceBase(OpContext context)
         {
-            get { return db ?? (db = new OpContext()); }
+            db = context;
         }
 
         public T GetById(int id)
         {
-            var entity = Db.Set<T>().Single(x => x.Id == id);
+            var entity = db.Set<T>().Single(x => x.Id == id);
             return entity;
         }
 
         public T GetByName(string name)
         {
-            var entity = Db.Set<T>().SingleOrDefault(x => x.Name == name);
+            var entity = db.Set<T>().SingleOrDefault(x => x.Name == name);
             return entity;
         }
 
         public IResult Add(T entity)
         {
             //Validation
-            if (Db.Set<T>().Any(x => x.Name == entity.Name))
+            if (db.Set<T>().Any(x => x.Name == entity.Name))
             {
                 return new ErrorResult
                 {
@@ -39,22 +39,16 @@ namespace jsL.Services
                 };
             }
 
-            Db.Set<T>().Add(entity);
-            Db.SaveChanges();
+            db.Set<T>().Add(entity);
+            db.SaveChanges();
 
             return new SuccessResult { Id = entity.Id };
         }
 
-        //public IResult Update(T entity)
-        //{
-        //    Db.SaveChanges();
-        //    return new SuccessResult { Id = entity.Id };
-        //}
-
         public IResult Delete(T entity)
         {
-            Db.Set<T>().Remove(entity);
-            Db.SaveChanges();
+            db.Set<T>().Remove(entity);
+            db.SaveChanges();
             return new SuccessResult();
         }
 
