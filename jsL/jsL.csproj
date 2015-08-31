@@ -191,6 +191,7 @@
     <Compile Include="Controllers\CharacterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Context\OpContext.cs" />
+    <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,6 +211,10 @@
     <Compile Include="ViewModels\PersonVm.cs" />
     <Content Include="App_Data\uploads\lynskey-large.jpg" />
     <Content Include="App_Data\uploads\lynskey-med.jpg" />
+    <Content Include="bower_components\ng-table\dist\ng-table.css" />
+    <Content Include="bower_components\ng-table\dist\ng-table.js" />
+    <Content Include="bower_components\ng-table\dist\ng-table.min.css" />
+    <Content Include="bower_components\ng-table\dist\ng-table.min.js" />
     <Content Include="Content\Op.css" />
     <Content Include="Content\themes\base\images\lynskey-large.jpg" />
     <Content Include="Content\themes\base\images\lynskey-med.jpg" />
@@ -295,6 +300,8 @@
     <Content Include="Scripts\angular-scenario.js" />
     <Content Include="Scripts\angular-touch.js" />
     <Content Include="Scripts\angular-touch.min.js" />
+    <Content Include="bower_components\ng-table\dist\ng-table.less" />
+    <Content Include="bower_components\ng-table\dist\ng-table.min.js.map" />
     <None Include="Scripts\angular.intellisense.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -1115,6 +1122,8 @@
     <Content Include="Views\Home\Testing.cshtml" />
     <Content Include="Views\Home\Yes.cshtml" />
     <Content Include="Views\Character\Index.cshtml" />
+    <Content Include="Views\Organization\Index.cshtml" />
+    <Content Include="Views\Home\NgTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508181523120_first.resx">

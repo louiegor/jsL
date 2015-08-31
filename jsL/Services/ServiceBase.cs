@@ -16,6 +16,11 @@ namespace jsL.Services
             db = context;
         }
 
+        public ICollection<T> GetAll()
+        {
+            return db.Set<T>().ToList();
+        }
+
         public T GetById(int id)
         {
             var entity = db.Set<T>().Single(x => x.Id == id);

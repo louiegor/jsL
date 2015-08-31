@@ -1,4 +1,4 @@
-﻿var myApp = angular.module('myApp', []);
+﻿var myApp = angular.module('myApp', ['ngTable']);
 
 myApp.controller('MyCtrl', ['$scope', MyCtrl]);
 
@@ -31,6 +31,38 @@ function MyCtrl($scope) {
 //  .controller('AddCtrl', ['$scope', 'sharedService', '$http', function($scope, sharedService, $http) {
 
 //myApp.controller('CharaController', ['$scope','sharedService','$http', function($scope, sharedService, $http) {
+
+myApp.controller('TableCtrl', function ($scope, ngTableParams) {
+    $scope.data = [
+     { name: "Moroni", age: 50 },
+     { name: "Tiancum", age: 43 },
+     { name: "Jacob", age: 27 },
+     { name: "Nephi", age: 29 },
+     { name: "Enos", age: 34 },
+     { name: "Tiancum", age: 43 },
+     { name: "Jacob", age: 27 },
+     { name: "Nephi", age: 29 },
+     { name: "Enos", age: 34 },
+     { name: "Tiancum", age: 43 },
+     { name: "Jacob", age: 27 },
+     { name: "Nephi", age: 29 },
+     { name: "Enos", age: 34 },
+     { name: "Tiancum", age: 43 },
+     { name: "Jacob", age: 27 },
+     { name: "Nephi", age: 29 },
+     { name: "Enos", age: 34 }
+    ];
+
+    $scope.tableParams = new ngTableParams({
+        page: 1,            // show first page
+        count: 10           // count per page
+    }, {
+        total: data.length, // length of data
+        getData: function ($defer, params) {
+            $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+        }
+    });
+});
 
 myApp.controller('OrganizationCtrl', function($scope, $http) {
     $scope.orgName = "";

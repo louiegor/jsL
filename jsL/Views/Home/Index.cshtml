@@ -25,6 +25,24 @@
 <h5>upload a file -http://jsfiddle.net/JeJenny/ZG9re/</h5>
 
 
+<div ng-controller="TableCtrl">
+
+    <p><strong>Page:</strong> {{tableParams.page()}}
+
+    <p><strong>Count per page:</strong> {{tableParams.count()}}
+
+    <table ng-table="tableParams" class="table">
+        <tr ng-repeat="user in data">
+            <td data-title="'Name'">
+                {{user.name}}
+            </td>
+            <td data-title="'Age'">
+                {{user.age}}
+            </td>
+        </tr>
+    </table>
+</div>
+
 <div ng-controller="OrganizationCtrl">
     <h6>test 15 - Add Character</h6>
     <form ng-submit="addChara()">

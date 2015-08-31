@@ -37,6 +37,11 @@ namespace jsL.Controllers
             return View();
         }
 
+        public ActionResult NgTable()
+        {
+            return View();
+        }
+
         public class ViewModel
         {
             public string NewName { get; set; }
@@ -51,10 +56,9 @@ namespace jsL.Controllers
         public ActionResult AddCharacter(CharaVm c)
         {
             var opContext = new OpContext();
-            var organizations = new List<Organization>();
+
             var org = opContext.Organizations.Single(x => x.Id == c.OrgId);
-            organizations.Add(org);
-            opContext.Characters.Add(new Character{Name = c.CharaName, Organization = org});
+            opContext.Characters.Add(new Character{Name = c.CharaName, Organization = org, Stats = new Stats()});
             opContext.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -166,7 +170,7 @@ namespace jsL.Controllers
 
         public static ContentResult ToJsonCamelResult<T>(this T obj)
         {
-            var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+            var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver(), ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
             var jsonObj = JsonConvert.SerializeObject(obj, Formatting.Indented, settings);
             //return new JsonResult { Data = jsonObj, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             return new ContentResult
