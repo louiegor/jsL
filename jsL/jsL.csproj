@@ -302,6 +302,7 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="bower_components\ng-table\dist\ng-table.less" />
     <Content Include="bower_components\ng-table\dist\ng-table.min.js.map" />
+    <None Include="Properties\PublishProfiles\louiegor.pubxml" />
     <None Include="Scripts\angular.intellisense.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />

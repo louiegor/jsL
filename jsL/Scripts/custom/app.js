@@ -34,7 +34,7 @@ function MyCtrl($scope) {
 
 myApp.controller('TableCtrl', function ($scope, ngTableParams) {
     $scope.data = [
-     { name: "Moroni", age: 50 },
+     { name: "Louiegor", age: 50 },
      { name: "Tiancum", age: 43 },
      { name: "Jacob", age: 27 },
      { name: "Nephi", age: 29 },
